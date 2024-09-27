@@ -1,4 +1,4 @@
-package com.example.lookup.repository;
+package com.example.lookup.exceptions;
 
 public class DetallePedidoNotFoundException extends RuntimeException{
     public DetallePedidoNotFoundException(Integer id) {

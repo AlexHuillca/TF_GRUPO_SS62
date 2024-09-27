@@ -3,7 +3,7 @@ package com.example.lookup.ServiceImplements;
 import com.example.lookup.dtos.DetallePedidoDTO;
 import com.example.lookup.entities.DetallePedido;
 import com.example.lookup.entities.Pedido;
-import com.example.lookup.repository.DetallePedidoNotFoundException;
+import com.example.lookup.exceptions.DetallePedidoNotFoundException;
 import com.example.lookup.repository.DetallePedidoRepository;
 import com.example.lookup.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

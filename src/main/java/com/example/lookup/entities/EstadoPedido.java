@@ -1,9 +1,11 @@
 package com.example.lookup.entities;
 
 import jakarta.persistence.*;
+import jdk.jfr.Enabled;
 import lombok.*;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 @Data

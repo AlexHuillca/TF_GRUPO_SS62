@@ -1,9 +1,10 @@
 package com.example.lookup.entities;
 
+import com.example.lookup.entities.Prenda;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
+import com.example.lookup.entities.Descuento;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 

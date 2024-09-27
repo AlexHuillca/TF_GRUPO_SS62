@@ -5,6 +5,7 @@ import com.example.lookup.entities.PreferenciasUsuario;
 import com.example.lookup.entities.User;
 import com.example.lookup.repository.PreferenciasRepository;
 import com.example.lookup.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
