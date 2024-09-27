@@ -2,6 +2,7 @@ package com.example.lookup.dtos;
 
 
 import com.example.lookup.entities.Pedido;
+import com.example.lookup.entities.User;
 import com.example.lookup.entities.Valoracion;
 import lombok.AllArgsConstructor;
 import lombok.Data;

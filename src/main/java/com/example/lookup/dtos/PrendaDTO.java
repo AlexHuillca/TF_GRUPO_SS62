@@ -1,5 +1,6 @@
 package com.example.lookup.dtos;
 
+import com.example.lookup.entities.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

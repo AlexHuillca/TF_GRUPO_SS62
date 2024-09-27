@@ -1,6 +1,7 @@
 package com.example.lookup.Services;
 
 import com.example.lookup.dtos.DTOUser;
+import com.example.lookup.entities.User;
 
 import java.util.List;
 

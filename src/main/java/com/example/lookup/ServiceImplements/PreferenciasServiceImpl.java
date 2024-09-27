@@ -1,5 +1,6 @@
 package com.example.lookup.ServiceImplements;
 
+import com.example.lookup.Services.PreferenciasService;
 import com.example.lookup.entities.PreferenciasUsuario;
 import com.example.lookup.exceptions.IncompleteDataException;
 import com.example.lookup.exceptions.ResourceNotFoundException;

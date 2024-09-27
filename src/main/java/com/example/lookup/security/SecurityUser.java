@@ -1,5 +1,6 @@
 package com.example.lookup.security;
 
+import com.example.lookup.entities.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;

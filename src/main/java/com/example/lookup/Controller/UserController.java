@@ -5,6 +5,7 @@ package com.example.lookup.Controller;
 import com.example.lookup.Services.UserService;
 import com.example.lookup.dtos.DTOToken;
 import com.example.lookup.dtos.DTOUser;
+import com.example.lookup.entities.User;
 import com.example.lookup.security.JwtUtilService;
 import com.example.lookup.security.SecurityUser;
 import org.springframework.beans.factory.annotation.Autowired;

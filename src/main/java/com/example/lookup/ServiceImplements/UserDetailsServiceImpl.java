@@ -1,6 +1,8 @@
 package com.example.lookup.ServiceImplements;
 
 
+import com.example.lookup.entities.User;
+import com.example.lookup.repository.UserRepository;
 import com.example.lookup.security.SecurityUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
