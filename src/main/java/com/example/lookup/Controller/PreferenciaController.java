@@ -46,4 +46,5 @@ public class PreferenciaController {
         preferenciasService.delete(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    //COMENTARIO
 }
