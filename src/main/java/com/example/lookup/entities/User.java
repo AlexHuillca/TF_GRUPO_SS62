@@ -50,6 +50,10 @@ public class User {
     )
     private List<Authority> authorities;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+    private List<Preferencias_usuarios> preferencia;
+
     public User(String nombre_Usuario, String password, String correo, String direccion, Date fecha_registro, boolean enabled, String genero, Long edad, String dni, List<Authority> authorities) {
         this.Nombre_Usuario = nombre_Usuario;
         this.password = password;
