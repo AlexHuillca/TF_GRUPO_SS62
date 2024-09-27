@@ -1,7 +1,7 @@
-package com.upc.closetlabel.Repository;
+package com.example.lookup.repository;
 
-import com.upc.closetlabel.DTO.ValoracionDTOResumen;
-import com.upc.closetlabel.Entities.Valoración;
+import com.example.lookup.dtos.ValoracionDTOResumen;
+import com.example.lookup.entities.Valoracion;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ValoracionRepositorio extends JpaRepository<Valoración,Integer> {
+public interface ValoracionRepositorio extends JpaRepository<Valoracion,Integer> {
 
-    @Query("SELECT new com.upc.closetlabel.DTO.ValoracionDTOResumen(v.comentarioValoracion, v.puntuacionValoracion)"
-    + "from Valoración v")
+    @Query("SELECT new com.example.lookup.dtos.ValoracionDTOResumen(v.comentarioValoracion, v.puntuacionValoracion)"
+    + "from Valoracion v")
     List<ValoracionDTOResumen>ResumenComentarios();
 
 }

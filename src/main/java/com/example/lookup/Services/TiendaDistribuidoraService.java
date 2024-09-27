@@ -1,6 +1,6 @@
-package com.upc.closetlabel.Servicio;
+package com.example.lookup.Services;
 
-import com.upc.closetlabel.Entities.TiendaDistribuidora;
+import com.example.lookup.entities.TiendaDistribuidora;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +10,7 @@ import java.util.List;
 @Primary
 public interface TiendaDistribuidoraService {
     TiendaDistribuidora save(TiendaDistribuidora t);
+
 
     List<TiendaDistribuidora> list();
 

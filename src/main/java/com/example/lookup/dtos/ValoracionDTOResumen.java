@@ -1,4 +1,4 @@
-package com.upc.closetlabel.DTO;
+package com.example.lookup.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

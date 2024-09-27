@@ -1,6 +1,6 @@
 package com.example.lookup.Services;
 
-import com.upc.closetlabel.Entities.Prenda;
+import com.example.lookup.entities.Prenda;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +10,7 @@ import java.util.List;
 @Primary
 public interface PrendaSAervice {
     Prenda save(Prenda p);
+
 
     List<Prenda> list();
 

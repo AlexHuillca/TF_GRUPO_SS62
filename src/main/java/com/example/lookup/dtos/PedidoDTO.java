@@ -1,7 +1,10 @@
-package com.upc.closetlabel.DTO;
+package com.example.lookup.dtos;
 
-import com.upc.closetlabel.Entities.*;
-import jakarta.persistence.*;
+import com.example.lookup.entities.Cliente;
+import com.example.lookup.entities.MetodoPago;
+import com.example.lookup.entities.Prenda;
+import com.example.lookup.entities.Valoracion;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,9 +35,8 @@ private Integer id;
 
     private MetodoPago idMetodoPago;
 
-    private Set<DetallePago> detallePagos = new LinkedHashSet<>();
 
     private Set<Prenda> prendas = new LinkedHashSet<>();
 
-    private Set<Valoración> valoracións = new LinkedHashSet<>();
+    private Set<Valoracion> valoracións = new LinkedHashSet<>();
 }

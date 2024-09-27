@@ -1,8 +1,8 @@
-package com.upc.closetlabel.ServicieImplments;
+package com.example.lookup.ServiceImplements;
 
-import com.upc.closetlabel.Entities.PrendaTienda;
-import com.upc.closetlabel.Repository.PrendaTientda_repository;
-import com.upc.closetlabel.Servicio.PrendaTIendaService;
+import com.example.lookup.Services.PrendaTIendaService;
+import com.example.lookup.entities.PrendaTienda;
+import com.example.lookup.repository.PrendaTientda_repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ public class PrendaTiendaImplements implements PrendaTIendaService {
     private PrendaTientda_repository prendaTientdaRepository;
 
     @Override
-    public  PrendaTienda save(PrendaTienda p)
+    public PrendaTienda save(PrendaTienda p)
     {
         return prendaTientdaRepository.save(p);
     }

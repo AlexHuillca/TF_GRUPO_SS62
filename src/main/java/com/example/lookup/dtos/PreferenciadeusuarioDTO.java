@@ -1,6 +1,7 @@
 package com.example.lookup.dtos;
 
-import com.upc.closetlabel.Entities.Usuario;
+import com.example.lookup.entities.User;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,6 +20,6 @@ public class PreferenciadeusuarioDTO {
 
     private Integer tipoEvento;
 
-    private Usuario idUsuario;
+    private User idUsuario;
 
 }

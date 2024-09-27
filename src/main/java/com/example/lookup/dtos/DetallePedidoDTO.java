@@ -14,4 +14,8 @@ public class DetallePedidoDTO {
     private Double precio;
     private Integer cantidad;
     private Integer pedidoId;
+
+    public DetallePedidoDTO() {
+
+    }
 }

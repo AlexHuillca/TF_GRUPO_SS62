@@ -28,4 +28,35 @@ public class MetodoPago {
     @OneToMany(mappedBy = "idMetodoPago")
     private Set<Pedido> pedidos = new LinkedHashSet<>();
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getTipoPago() {
+        return tipoPago;
+    }
+
+    public void setTipoPago(String tipoPago) {
+        this.tipoPago = tipoPago;
+    }
+
+    public String getDetalleRegistro() {
+        return detalleRegistro;
+    }
+
+    public void setDetalleRegistro(String detalleRegistro) {
+        this.detalleRegistro = detalleRegistro;
+    }
+
+    public Set<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(Set<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
 }

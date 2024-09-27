@@ -1,9 +1,8 @@
-package com.upc.closetlabel.Controller;
+package com.example.lookup.Controller;
 
-import com.upc.closetlabel.DTO.TiendaDistribuidoraDTO;
-import com.upc.closetlabel.Entities.TiendaDistribuidora;
-import com.upc.closetlabel.Repository.TiendaDistribuidoraRepository;
-import com.upc.closetlabel.Servicio.TiendaDistribuidoraService;
+import com.example.lookup.Services.TiendaDistribuidoraService;
+import com.example.lookup.dtos.TiendaDistribuidoraDTO;
+import com.example.lookup.entities.TiendaDistribuidora;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,9 +35,9 @@ public class TiendaDistribuidoraController {
         return new ResponseEntity<List<TiendaDistribuidoraDTO>>(Arrays.asList(mp.map(tiendaDistribuidoraService.list(),TiendaDistribuidoraDTO[].class)),HttpStatus.OK);
     }
 
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/eliminar/tiendaDistribuidora{id}")
     public ResponseEntity<String>delete(@PathVariable Integer id)
     {
-        return new ResponseEntity<String>(tiendaDistribuidoraService.delete(id),HttpStatus.OK);
+        return new ResponseEntity<String>(String.valueOf(tiendaDistribuidoraService.delete(id)),HttpStatus.OK);
     }
 }

@@ -1,8 +1,8 @@
-package com.upc.closetlabel.Controller;
+package com.example.lookup.Controller;
 
-import com.upc.closetlabel.DTO.PrendaTiendaDTO;
-import com.upc.closetlabel.Entities.PrendaTienda;
-import com.upc.closetlabel.Servicio.PrendaTIendaService;
+import com.example.lookup.Services.PrendaTIendaService;
+import com.example.lookup.dtos.PrendaTiendaDTO;
+import com.example.lookup.entities.PrendaTienda;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,7 +35,7 @@ public class PrendaTiendaController {
         return new ResponseEntity<List<PrendaTiendaDTO>>(Arrays.asList(mp.map(prendaTIendaService.list(),PrendaTiendaDTO[].class)),HttpStatus.OK);
     }
 
-    @DeleteMapping("/Eliminar/{id}")
+    @DeleteMapping("/Eliminar/prendatienda/{id}")
     public ResponseEntity<String> delete(@PathVariable Integer id)
     {
         return new ResponseEntity<String>(prendaTIendaService.delete(id),HttpStatus.OK);

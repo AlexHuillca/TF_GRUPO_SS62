@@ -1,5 +1,6 @@
-package com.upc.closetlabel.Entities;
+package com.example.lookup.entities;
 
+import com.example.lookup.entities.Prenda;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,4 +32,43 @@ public class TiendaDistribuidora {
     @OneToMany(mappedBy = "idTienda")
     private List<PrendaTienda> prendaTiendas = new ArrayList<>();
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNombreTienda() {
+        return nombreTienda;
+    }
+
+    public void setNombreTienda(String nombreTienda) {
+        this.nombreTienda = nombreTienda;
+    }
+
+    public Integer getPrendaIdPrenda() {
+        return prendaIdPrenda;
+    }
+
+    public void setPrendaIdPrenda(Integer prendaIdPrenda) {
+        this.prendaIdPrenda = prendaIdPrenda;
+    }
+
+    public List<Descuento> getDescuentos() {
+        return descuentos;
+    }
+
+    public void setDescuentos(List<Descuento> descuentos) {
+        this.descuentos = descuentos;
+    }
+
+    public List<PrendaTienda> getPrendaTiendas() {
+        return prendaTiendas;
+    }
+
+    public void setPrendaTiendas(List<PrendaTienda> prendaTiendas) {
+        this.prendaTiendas = prendaTiendas;
+    }
 }

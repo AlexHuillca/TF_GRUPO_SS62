@@ -1,8 +1,8 @@
 package com.example.lookup.Controller;
 
-import com.upc.closetlabel.DTO.PreferenciadeusuarioDTO;
-import com.upc.closetlabel.Entities.PreferenciasUsuario;
-import com.upc.closetlabel.Servicio.PreferenciaUsuarioService;
+import com.example.lookup.Services.PreferenciaUsuarioService;
+import com.example.lookup.dtos.PreferenciadeusuarioDTO;
+import com.example.lookup.entities.PreferenciasUsuario;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,7 +42,7 @@ public class PreferenciaUsuarioController {
     }
 
 
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/eliminar/preferencia/{id}")
     public ResponseEntity<String> delete(@RequestBody Integer id)
     {
         mp= new ModelMapper();

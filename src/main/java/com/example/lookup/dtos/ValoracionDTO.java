@@ -1,8 +1,7 @@
-package com.upc.closetlabel.DTO;
+package com.example.lookup.dtos;
 
-import com.upc.closetlabel.Entities.Cliente;
-import com.upc.closetlabel.Entities.Pedido;
-import jakarta.persistence.*;
+import com.example.lookup.entities.Cliente;
+import com.example.lookup.entities.Pedido;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

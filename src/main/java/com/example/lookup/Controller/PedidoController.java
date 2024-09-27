@@ -1,8 +1,8 @@
-package com.upc.closetlabel.Controller;
+package com.example.lookup.Controller;
 
-import com.upc.closetlabel.DTO.PedidoDTO;
-import com.upc.closetlabel.Entities.Pedido;
-import com.upc.closetlabel.Servicio.PedidoService;
+import com.example.lookup.Services.PedidoService;
+import com.example.lookup.dtos.PedidoDTO;
+import com.example.lookup.entities.Pedido;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

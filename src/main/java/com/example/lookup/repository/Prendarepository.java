@@ -1,6 +1,7 @@
 package com.example.lookup.repository;
 
-import com.upc.closetlabel.Entities.Prenda;
+import com.example.lookup.entities.Prenda;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

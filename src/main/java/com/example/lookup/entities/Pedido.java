@@ -1,4 +1,4 @@
-package com.upc.closetlabel.Entities;
+package com.example.lookup.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -46,12 +46,96 @@ public class Pedido {
     private MetodoPago idMetodoPago;
 
     @OneToMany(mappedBy = "idPedido")
-    private Set<DetallePago> detallePagos = new LinkedHashSet<>();
-
-    @OneToMany(mappedBy = "idPedido")
     private Set<Prenda> prendas = new LinkedHashSet<>();
 
     @OneToMany(mappedBy = "pedidoIdPedido")
-    private Set<Valoración> valoracións = new LinkedHashSet<>();
+    private Set<Valoracion> valoracions = new LinkedHashSet<>();
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public LocalDate getFechaPedido() {
+        return fechaPedido;
+    }
+
+    public void setFechaPedido(LocalDate fechaPedido) {
+        this.fechaPedido = fechaPedido;
+    }
+
+    public String getEstadoPedido() {
+        return estadoPedido;
+    }
+
+    public void setEstadoPedido(String estadoPedido) {
+        this.estadoPedido = estadoPedido;
+    }
+
+    public String getDireccionEntrega() {
+        return direccionEntrega;
+    }
+
+    public void setDireccionEntrega(String direccionEntrega) {
+        this.direccionEntrega = direccionEntrega;
+    }
+
+    public BigDecimal getTotalPedido() {
+        return totalPedido;
+    }
+
+    public void setTotalPedido(BigDecimal totalPedido) {
+        this.totalPedido = totalPedido;
+    }
+
+    public String getEstadoEnvio() {
+        return estadoEnvio;
+    }
+
+    public void setEstadoEnvio(String estadoEnvio) {
+        this.estadoEnvio = estadoEnvio;
+    }
+
+    public Integer getNumeroSeguimiento() {
+        return numeroSeguimiento;
+    }
+
+    public void setNumeroSeguimiento(Integer numeroSeguimiento) {
+        this.numeroSeguimiento = numeroSeguimiento;
+    }
+
+    public Cliente getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Cliente idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public MetodoPago getIdMetodoPago() {
+        return idMetodoPago;
+    }
+
+    public void setIdMetodoPago(MetodoPago idMetodoPago) {
+        this.idMetodoPago = idMetodoPago;
+    }
+
+    public Set<Prenda> getPrendas() {
+        return prendas;
+    }
+
+    public void setPrendas(Set<Prenda> prendas) {
+        this.prendas = prendas;
+    }
+
+    public Set<Valoracion> getValoracions() {
+        return valoracions;
+    }
+
+    public void setValoracions(Set<Valoracion> valoracions) {
+        this.valoracions = valoracions;
+    }
 }

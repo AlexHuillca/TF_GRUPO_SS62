@@ -1,6 +1,6 @@
-package com.upc.closetlabel.Repository;
+package com.example.lookup.repository;
 
-import com.upc.closetlabel.Entities.TiendaDistribuidora;
+import com.example.lookup.entities.TiendaDistribuidora;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

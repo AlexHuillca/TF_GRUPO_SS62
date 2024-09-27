@@ -23,4 +23,27 @@ public class Marca {
     @OneToMany(mappedBy = "idMarca")
     private Set<Prenda> prendas = new LinkedHashSet<>();
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNombreMarca() {
+        return nombreMarca;
+    }
+
+    public void setNombreMarca(String nombreMarca) {
+        this.nombreMarca = nombreMarca;
+    }
+
+    public Set<Prenda> getPrendas() {
+        return prendas;
+    }
+
+    public void setPrendas(Set<Prenda> prendas) {
+        this.prendas = prendas;
+    }
 }

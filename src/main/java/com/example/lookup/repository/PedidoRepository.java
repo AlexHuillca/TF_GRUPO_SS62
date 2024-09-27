@@ -1,6 +1,6 @@
-package com.upc.closetlabel.Repository;
+package com.example.lookup.repository;
 
-import com.upc.closetlabel.Entities.Pedido;
+import com.example.lookup.entities.Pedido;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,10 +1,11 @@
 package com.example.lookup.ServiceImplements;
 
-import com.upc.closetlabel.Entities.PreferenciasUsuario;
-import com.upc.closetlabel.Entities.Usuario;
-import com.upc.closetlabel.Repository.PreferenciaUsarioRepository;
-import com.upc.closetlabel.Repository.UsarioRepository;
-import com.upc.closetlabel.Servicio.PreferenciaUsuarioService;
+import com.example.lookup.Services.PreferenciaUsuarioService;
+import com.example.lookup.entities.PreferenciasUsuario;
+import com.example.lookup.entities.User;
+import com.example.lookup.repository.PreferenciasRepository;
+import com.example.lookup.repository.UserRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +14,9 @@ import java.util.List;
 @Service
 public class PrefereneciaUsuarioImplements implements PreferenciaUsuarioService {
     @Autowired
-    private PreferenciaUsarioRepository preferenciaUsarioRepository;
-    private UsarioRepository usarioRepository;
+    private PreferenciasRepository preferenciaUsarioRepository;
+    @Autowired
+    private UserRepository usarioRepository;
     @Override
     public PreferenciasUsuario save(PreferenciasUsuario preferenciasUsuario)
     {
@@ -22,19 +24,25 @@ public class PrefereneciaUsuarioImplements implements PreferenciaUsuarioService 
     }
 
     @Override
-    public List<PreferenciasUsuario> list() {
+    public List<PreferenciasUsuario> list(Integer idusuario) {
         return null;
     }
 
 
     @Override
-    public List<PreferenciasUsuario> list(Integer idusuario)
+    public String eliminar(Integer id) {
+        return null;
+    }
+
+
+    @Override
+    public List<PreferenciasUsuario> list(Long idusuario)
     {
-        return usarioRepository.findById(idusuario).map(Usuario::getPreferenciasUsuarios).orElseThrow();
+        return usarioRepository.findById(idusuario).map(User::getPreferencia).orElseThrow();
     }
 
     @Override
-    public String eliminar(Integer id)
+    public String eliminar(Long id)
     {
         if(preferenciaUsarioRepository.findById(id)==null)
         {

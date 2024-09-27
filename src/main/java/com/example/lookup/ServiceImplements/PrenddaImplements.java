@@ -1,8 +1,8 @@
 package com.example.lookup.ServiceImplements;
 
-import com.upc.closetlabel.Entities.Prenda;
-import com.upc.closetlabel.Repository.Prendarepository;
-import com.upc.closetlabel.Servicio.PrendaSAervice;
+import com.example.lookup.Services.PrendaSAervice;
+import com.example.lookup.entities.Prenda;
+import com.example.lookup.repository.Prendarepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

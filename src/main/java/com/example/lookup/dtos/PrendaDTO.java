@@ -1,6 +1,6 @@
 package com.example.lookup.dtos;
 
-import com.upc.closetlabel.Entities.*;
+import com.example.lookup.entities.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -35,7 +35,6 @@ public class PrendaDTO {
 
     private Set<Descuento> descuentos = new LinkedHashSet<>();
 
-    private Set<HistorialCambiosPrenda> historialCambiosPrendas = new LinkedHashSet<>();
 
     private Set<PrendaTienda> prendaTiendas = new LinkedHashSet<>();
 }

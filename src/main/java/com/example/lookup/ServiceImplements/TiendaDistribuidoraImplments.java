@@ -1,8 +1,8 @@
-package com.upc.closetlabel.ServicieImplments;
+package com.example.lookup.ServiceImplements;
 
-import com.upc.closetlabel.Entities.TiendaDistribuidora;
-import com.upc.closetlabel.Repository.TiendaDistribuidoraRepository;
-import com.upc.closetlabel.Servicio.TiendaDistribuidoraService;
+import com.example.lookup.Services.TiendaDistribuidoraService;
+import com.example.lookup.entities.TiendaDistribuidora;
+import com.example.lookup.repository.TiendaDistribuidoraRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ public class TiendaDistribuidoraImplments implements TiendaDistribuidoraService 
     TiendaDistribuidoraRepository tiendaDistribuidoraRepository;
 
     @Override
-    public TiendaDistribuidora save ( TiendaDistribuidora t)
+    public TiendaDistribuidora save(TiendaDistribuidora t)
     {
         return tiendaDistribuidoraRepository.save(t);
     }

@@ -1,8 +1,8 @@
-package com.upc.closetlabel.ServicieImplments;
+package com.example.lookup.ServiceImplements;
 
-import com.upc.closetlabel.Entities.Descuento;
-import com.upc.closetlabel.Repository.DescuentoRepository;
-import com.upc.closetlabel.Servicio.DescuentoService;
+import com.example.lookup.Services.DescuentoService;
+import com.example.lookup.entities.Descuento;
+import com.example.lookup.repository.DescuentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

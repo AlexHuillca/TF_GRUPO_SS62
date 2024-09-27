@@ -1,8 +1,8 @@
-package com.upc.closetlabel.ServicieImplments;
+package com.example.lookup.ServiceImplements;
 
-import com.upc.closetlabel.Entities.Pedido;
-import com.upc.closetlabel.Repository.PedidoRepository;
-import com.upc.closetlabel.Servicio.PedidoService;
+import com.example.lookup.Services.PedidoService;
+import com.example.lookup.entities.Pedido;
+import com.example.lookup.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class PedidoImplements implements PedidoService {
 
 
     @Override
-    public Pedido save ( Pedido p)
+    public Pedido save(Pedido p)
     {
         return pedidoRepository.save(p);
     }

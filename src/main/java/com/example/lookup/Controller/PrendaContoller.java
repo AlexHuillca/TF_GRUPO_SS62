@@ -1,8 +1,8 @@
 package com.example.lookup.Controller;
 
-import com.upc.closetlabel.DTO.PrendaDTO;
-import com.upc.closetlabel.Entities.Prenda;
-import com.upc.closetlabel.Servicio.PrendaSAervice;
+import com.example.lookup.Services.PrendaSAervice;
+import com.example.lookup.dtos.PrendaDTO;
+import com.example.lookup.entities.Prenda;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
