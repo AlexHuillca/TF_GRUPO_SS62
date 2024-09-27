@@ -1,13 +1,11 @@
-package com.upc.closetlabel.Entities;
+package com.example.lookup.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
-import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -24,12 +22,51 @@ public class Cliente {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_usuario")
-    private Usuario idUsuario;
+    private User idUsuario;
 
     @OneToMany(mappedBy = "idCliente")
     private List<Pedido> pedidos = new ArrayList<>();
 
     @OneToMany(mappedBy = "clienteIdCliente")
-    private List<Valoración> valoracións = new ArrayList<>();
+    private List<Valoracion> valoracions = new ArrayList<>();
 
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
+    }
+
+    public User getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(User idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
+    }
+
+    public List<Valoracion> getValoracions() {
+        return valoracions;
+    }
+
+    public void setValoracions(List<Valoracion> valoracions) {
+        this.valoracions = valoracions;
+    }
 }

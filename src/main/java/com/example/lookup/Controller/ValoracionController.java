@@ -1,9 +1,9 @@
-package com.upc.closetlabel.Controller;
+package com.example.lookup.Controller;
 
-import com.upc.closetlabel.DTO.ValoracionDTO;
-import com.upc.closetlabel.DTO.ValoracionDTOResumen;
-import com.upc.closetlabel.Entities.Valoración;
-import com.upc.closetlabel.Servicio.ValoracionService;
+import com.example.lookup.Services.ValoracionService;
+import com.example.lookup.dtos.ValoracionDTO;
+import com.example.lookup.dtos.ValoracionDTOResumen;
+import com.example.lookup.entities.Valoracion;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -33,7 +33,7 @@ ModelMapper mp;
     {
         mp = new ModelMapper();
 
-        Valoración v = mp.map(valoracionDTO, Valoración.class);
+        Valoracion v = mp.map(valoracionDTO, Valoracion.class);
 
         valoracionService.save(v);
 
@@ -41,7 +41,7 @@ ModelMapper mp;
     }
 
 
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/eliminar/Valoracion/{id}")
     public ResponseEntity<String> delete (@PathVariable Integer id)
     {
         return new ResponseEntity<String>(valoracionService.Eliminar(id),HttpStatus.OK);

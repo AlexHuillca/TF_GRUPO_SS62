@@ -1,10 +1,9 @@
 package com.example.lookup.repository;
 
-import com.example.lookup.entities.Descuento;
+import com.example.lookup.entities.EstadoPedido;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DescuentoRepository extends JpaRepository<Descuento,Integer> {
-
+public interface EstadoPedidoRepository extends JpaRepository<EstadoPedido, Integer> {
 }

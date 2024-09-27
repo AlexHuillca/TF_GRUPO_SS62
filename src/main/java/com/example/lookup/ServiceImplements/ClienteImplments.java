@@ -1,8 +1,8 @@
-package com.upc.closetlabel.ServicieImplments;
+package com.example.lookup.ServiceImplements;
 
-import com.upc.closetlabel.Entities.Cliente;
-import com.upc.closetlabel.Repository.ClienteRepository;
-import com.upc.closetlabel.Servicio.ClienteService;
+import com.example.lookup.Services.ClienteService;
+import com.example.lookup.entities.Cliente;
+import com.example.lookup.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class ClienteImplments implements ClienteService {
 
 
     @Override
-    public Cliente save ( Cliente c)
+    public Cliente save(Cliente c)
     {
         return  clienteRepository.save(c);
     }

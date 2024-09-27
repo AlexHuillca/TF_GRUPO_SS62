@@ -1,8 +1,8 @@
-package com.upc.closetlabel.Controller;
+package com.example.lookup.Controller;
 
-import com.upc.closetlabel.DTO.ClienteDTO;
-import com.upc.closetlabel.Entities.Cliente;
-import com.upc.closetlabel.Servicio.ClienteService;
+import com.example.lookup.Services.ClienteService;
+import com.example.lookup.dtos.ClienteDTO;
+import com.example.lookup.entities.Cliente;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -38,7 +38,7 @@ public class CLientecontroller {
     }
 
 
-    @DeleteMapping("/eliminar/{id}")
+    @DeleteMapping("/eliminar/cliente/{id}")
     public ResponseEntity<String> delete( @PathVariable Integer id)
         {
         return new ResponseEntity<String>(clienteService.delete(id),HttpStatus.OK);

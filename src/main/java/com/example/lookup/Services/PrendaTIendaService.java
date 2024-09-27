@@ -1,6 +1,6 @@
-package com.upc.closetlabel.Servicio;
+package com.example.lookup.Services;
 
-import com.upc.closetlabel.Entities.PrendaTienda;
+import com.example.lookup.entities.PrendaTienda;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -10,6 +10,7 @@ import java.util.List;
 @Primary
 public interface PrendaTIendaService {
     PrendaTienda save(PrendaTienda p);
+
 
     List<PrendaTienda> list();
 

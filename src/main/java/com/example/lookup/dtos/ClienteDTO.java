@@ -1,9 +1,9 @@
-package com.upc.closetlabel.DTO;
+package com.example.lookup.dtos;
 
-import com.upc.closetlabel.Entities.Pedido;
-import com.upc.closetlabel.Entities.Usuario;
-import com.upc.closetlabel.Entities.Valoración;
-import jakarta.persistence.*;
+
+import com.example.lookup.entities.Pedido;
+import com.example.lookup.entities.User;
+import com.example.lookup.entities.Valoracion;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,9 +18,9 @@ public class ClienteDTO {
 
     private String nombreCliente;
 
-    private Usuario idUsuario;
+    private User idUsuario;
 
     private Set<Pedido> pedidos = new LinkedHashSet<>();
 
-    private Set<Valoración> valoracións = new LinkedHashSet<>();
+    private Set<Valoracion> valoracións = new LinkedHashSet<>();
 }

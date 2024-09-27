@@ -1,4 +1,4 @@
-package com.upc.closetlabel.Entities;
+package com.example.lookup.entities;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -12,6 +12,9 @@ import java.time.LocalDate;
 @Table(name = "prenda_tienda")
 public class PrendaTienda {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_tienda")
     private TiendaDistribuidora idTienda;

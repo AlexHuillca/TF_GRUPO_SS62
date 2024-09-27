@@ -1,10 +1,10 @@
 package com.example.lookup.repository;
 
-import com.example.lookup.entities.Descuento;
+import com.example.lookup.entities.Prenda;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface DescuentoRepository extends JpaRepository<Descuento,Integer> {
-
+public interface Prendarepository extends JpaRepository<Prenda,Integer> {
 }

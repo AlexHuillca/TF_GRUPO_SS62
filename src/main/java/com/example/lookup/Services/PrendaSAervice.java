@@ -1,6 +1,6 @@
 package com.example.lookup.Services;
 
-import com.example.lookup.entities.Pedido;
+import com.example.lookup.entities.Prenda;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
@@ -8,11 +8,11 @@ import java.util.List;
 
 @Service
 @Primary
-public interface PedidoService {
-    Pedido save(Pedido p);
+public interface PrendaSAervice {
+    Prenda save(Prenda p);
 
 
-    List<Pedido> list();
+    List<Prenda> list();
 
-    String delete(Integer id);
+    String  delelte(Integer id);
 }

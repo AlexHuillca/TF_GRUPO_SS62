@@ -1,14 +1,18 @@
-package com.upc.closetlabel.Servicio;
+package com.example.lookup.Services;
 
-import com.upc.closetlabel.DTO.ValoracionDTOResumen;
-import com.upc.closetlabel.Entities.Valoración;
+import com.example.lookup.dtos.ValoracionDTOResumen;
+import com.example.lookup.entities.Valoracion;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
+@Primary
 public interface ValoracionService {
     List<ValoracionDTOResumen>resumen_comentario();
 
-    Valoración save(Valoración v);
+    Valoracion save(Valoracion v);
+
 
     String Eliminar(Integer id);
 }

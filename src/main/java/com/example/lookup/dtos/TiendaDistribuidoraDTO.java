@@ -1,8 +1,7 @@
-package com.upc.closetlabel.DTO;
+package com.example.lookup.dtos;
 
-import com.upc.closetlabel.Entities.Descuento;
-import com.upc.closetlabel.Entities.PrendaTienda;
-import jakarta.persistence.*;
+import com.example.lookup.entities.Descuento;
+import com.example.lookup.entities.PrendaTienda;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

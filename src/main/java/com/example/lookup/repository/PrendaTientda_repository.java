@@ -1,6 +1,6 @@
-package com.upc.closetlabel.Repository;
+package com.example.lookup.repository;
 
-import com.upc.closetlabel.Entities.PrendaTienda;
+import com.example.lookup.entities.PrendaTienda;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

@@ -1,9 +1,9 @@
-package com.upc.closetlabel.ServicieImplments;
+package com.example.lookup.ServiceImplements;
 
-import com.upc.closetlabel.DTO.ValoracionDTOResumen;
-import com.upc.closetlabel.Entities.Valoración;
-import com.upc.closetlabel.Repository.ValoracionRepositorio;
-import com.upc.closetlabel.Servicio.ValoracionService;
+import com.example.lookup.Services.ValoracionService;
+import com.example.lookup.dtos.ValoracionDTOResumen;
+import com.example.lookup.entities.Valoracion;
+import com.example.lookup.repository.ValoracionRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +23,7 @@ public class ValoracionImplements implements ValoracionService {
 
 
     @Override
-    public Valoración save (Valoración v)
+    public Valoracion save(Valoracion v)
     {
         return  valoracionRepositorio.save(v);
     }
