@@ -1,11 +1,11 @@
 package com.example.lookup.Services;
 
-import com.example.lookup.entities.Preferencias_usuarios;
+import com.example.lookup.entities.PreferenciasUsuario;
 
 public interface PreferenciasService {
-    public Preferencias_usuarios save(Preferencias_usuarios preferenciasUsuarios);
-    public Preferencias_usuarios findbyId(Long id);
-    public Preferencias_usuarios update(Preferencias_usuarios preferenciasUsuarios);
+    public PreferenciasUsuario save(PreferenciasUsuario preferenciasUsuarios);
+    public PreferenciasUsuario findbyId(Long id);
+    public PreferenciasUsuario update(PreferenciasUsuario preferenciasUsuarios);
     public void delete(Long id);
 
 }

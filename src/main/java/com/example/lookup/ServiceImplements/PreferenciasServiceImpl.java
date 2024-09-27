@@ -1,17 +1,12 @@
 package com.example.lookup.ServiceImplements;
 
-import com.example.lookup.Services.PreferenciasService;
-import com.example.lookup.entities.Preferencias_usuarios;
-import com.example.lookup.entities.User;
+import com.example.lookup.entities.PreferenciasUsuario;
 import com.example.lookup.exceptions.IncompleteDataException;
 import com.example.lookup.exceptions.ResourceNotFoundException;
 import com.example.lookup.repository.PreferenciasRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 public class PreferenciasServiceImpl implements PreferenciasService {
@@ -23,28 +18,28 @@ public class PreferenciasServiceImpl implements PreferenciasService {
     private ModelMapper modelMapper;
 
     @Override
-    public Preferencias_usuarios save(Preferencias_usuarios preferenciasUsuarios) {
-        if (preferenciasUsuarios.getUser() == null || preferenciasUsuarios.getUser().isEnabled()){
+    public PreferenciasUsuario save(PreferenciasUsuario preferenciasUsuarios) {
+        if (preferenciasUsuarios.getIdUsuario() == null || preferenciasUsuarios.getIdUsuario().isEnabled()){
             throw new IncompleteDataException("El usuario no puede ser nulo");
         }
 
-        if (preferenciasUsuarios.getTipo_evento() == null || preferenciasUsuarios.getTipo_evento().isBlank()){
+        if (preferenciasUsuarios.getTipoEvento() == null || preferenciasUsuarios.getTipoEvento().describeConstable().isEmpty()){
             throw new IncompleteDataException("El tipo de evento no puede estar vacio");
         }
 
-        if (preferenciasUsuarios.getTipo_prenda_favorito() == null || preferenciasUsuarios.getTipo_prenda_favorito().isBlank()){
+        if (preferenciasUsuarios.getTipoPrendaFavorito() == null || preferenciasUsuarios.getTipoPrendaFavorito().describeConstable().isEmpty()){
             throw new IncompleteDataException("El tipo de prenda no puede estar vacio");
         }
 
-        if (preferenciasUsuarios.getTalla_favorita() == null || preferenciasUsuarios.getTalla_favorita().isBlank()){
+        if (preferenciasUsuarios.getTallaFavorita() == null || preferenciasUsuarios.getTallaFavorita().describeConstable().isEmpty()){
             throw new IncompleteDataException("La talla no puede estar vacia");
         }
         return preferenciasRepository.save(preferenciasUsuarios);
     }
 
     @Override
-    public Preferencias_usuarios findbyId(Long id) {
-        Preferencias_usuarios preferencia = preferenciasRepository.findById(id).orElse(null);
+    public PreferenciasUsuario findbyId(Long id) {
+        PreferenciasUsuario preferencia = preferenciasRepository.findById(id).orElse(null);
         if(preferencia == null){
             throw new ResourceNotFoundException("No existe la preferencia con el id: "+String.valueOf(id));
         }
@@ -52,12 +47,12 @@ public class PreferenciasServiceImpl implements PreferenciasService {
     }
 
     @Override
-    public Preferencias_usuarios update(Preferencias_usuarios preferenciasUsuarios) {
+    public PreferenciasUsuario update(PreferenciasUsuario preferenciasUsuarios) {
         if (preferenciasUsuarios.getId() == null){
             throw new IncompleteDataException("El id no puede ser nulo");
         }
 
-        Preferencias_usuarios preferencia = preferenciasRepository.findById(preferenciasUsuarios.getId())
+        PreferenciasUsuario preferencia = preferenciasRepository.findById(preferenciasUsuarios.getId())
                 .orElseThrow(() -> new ResourceNotFoundException("No existe la preferencia con el id: "+String.valueOf(preferenciasUsuarios.getId())));
 
 
@@ -67,7 +62,7 @@ public class PreferenciasServiceImpl implements PreferenciasService {
 
     @Override
     public void delete(Long id) {
-        Preferencias_usuarios prefr = findbyId(id);
+        PreferenciasUsuario prefr = findbyId(id);
         if(prefr == null){
             throw new ResourceNotFoundException("La preferencia con id: " + id + "no se encuentra");
         }

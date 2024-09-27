@@ -1,8 +1,7 @@
 package com.example.lookup.Controller;
 
 import com.example.lookup.Services.PreferenciasService;
-import com.example.lookup.dtos.DTOUser;
-import com.example.lookup.entities.Preferencias_usuarios;
+import com.example.lookup.entities.PreferenciasUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,8 +15,8 @@ public class PreferenciaController {
     PreferenciasService preferenciasService;
 
     @PostMapping("/preferencia/register")
-    public ResponseEntity<Preferencias_usuarios> createPreferencia(@RequestBody Preferencias_usuarios prefe) {
-        Preferencias_usuarios newPrefer = preferenciasService.save(prefe);
+    public ResponseEntity<PreferenciasUsuario> createPreferencia(@RequestBody PreferenciasUsuario prefe) {
+        PreferenciasUsuario newPrefer = preferenciasService.save(prefe);
         if (newPrefer==null){
             return new ResponseEntity<>(HttpStatus.NOT_ACCEPTABLE);
         }
@@ -26,8 +25,8 @@ public class PreferenciaController {
 
 
     @PutMapping("/preferencia")
-    public ResponseEntity<Preferencias_usuarios> updatePreferencia(@RequestBody Preferencias_usuarios prefe) {
-        Preferencias_usuarios updPrefer = preferenciasService.update(prefe);
+    public ResponseEntity<PreferenciasUsuario> updatePreferencia(@RequestBody PreferenciasUsuario prefe) {
+        PreferenciasUsuario updPrefer = preferenciasService.update(prefe);
         if (updPrefer==null){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
@@ -36,8 +35,8 @@ public class PreferenciaController {
 
 
     @GetMapping("/preferencia/{id}")
-    public ResponseEntity<Preferencias_usuarios> getPrefrById(@PathVariable("id") Long id) {
-        Preferencias_usuarios preferencia = preferenciasService.findbyId(id);
+    public ResponseEntity<PreferenciasUsuario> getPrefrById(@PathVariable("id") Long id) {
+        PreferenciasUsuario preferencia = preferenciasService.findbyId(id);
         return ResponseEntity.ok(preferencia);
     }
 

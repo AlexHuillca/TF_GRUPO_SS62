@@ -3,7 +3,6 @@ package com.example.lookup;
 import com.example.lookup.entities.Authority;
 import com.example.lookup.entities.AuthorityName;
 import com.example.lookup.repository.AuthorityRepository;
-import com.example.lookup.repository.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
