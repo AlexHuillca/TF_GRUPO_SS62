@@ -1,6 +1,7 @@
 package com.example.lookup.ServiceImplements;
 
 import com.example.lookup.Services.PrendaTiendaService;
+import com.example.lookup.dtos.PrendasDisponiblesDTO;
 import com.example.lookup.entities.PrendaTienda;
 import com.example.lookup.repository.PrendaTiendaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,10 @@ public class PrendaTiendaImplements implements PrendaTiendaService {
             return" nose encontro la prenda seleccionada";
         }else {prendaTiendaRepository.deleteById(id);
         return "prenda eliminada de la base de datos";}
+    }
+
+    @Override
+    public List<PrendasDisponiblesDTO> prendasDisponibles() {
+        return prendaTiendaRepository.prendasDisponibles();
     }
 }
