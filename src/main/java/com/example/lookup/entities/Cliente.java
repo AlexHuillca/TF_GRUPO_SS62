@@ -1,7 +1,9 @@
 package com.example.lookup.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
@@ -9,15 +11,17 @@ import java.util.List;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "cliente")
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_cliente", nullable = false)
-    private Integer id;
+    @Column(name = "id_cliente")
+    private Long idCliente;
 
-    @Column(name = "nombre_cliente", length = 100)
+    @Column(name = "nombre_cliente", length = 100, nullable = false)
     private String nombreCliente;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -29,44 +33,4 @@ public class Cliente {
 
     @OneToMany(mappedBy = "clienteIdCliente")
     private List<Valoracion> valoracions = new ArrayList<>();
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getNombreCliente() {
-        return nombreCliente;
-    }
-
-    public void setNombreCliente(String nombreCliente) {
-        this.nombreCliente = nombreCliente;
-    }
-
-    public User getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(User idUsuario) {
-        this.idUsuario = idUsuario;
-    }
-
-    public List<Pedido> getPedidos() {
-        return pedidos;
-    }
-
-    public void setPedidos(List<Pedido> pedidos) {
-        this.pedidos = pedidos;
-    }
-
-    public List<Valoracion> getValoracions() {
-        return valoracions;
-    }
-
-    public void setValoracions(List<Valoracion> valoracions) {
-        this.valoracions = valoracions;
-    }
 }

@@ -1,28 +1,32 @@
 package com.example.lookup.entities;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "valoración")
+@Table(name = "valoracion")
 public class Valoracion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_valoracion", nullable = false)
-    private Integer id;
+    private Long idValoracion;
 
-    @Column(name = "comentario_valoracion", length = 300)
+    @Column(name = "comentario_valoracion", length = 300, nullable = false)
     private String comentarioValoracion;
 
-    @Column(name = "puntuacion_valoracion")
+    @Column(name = "puntuacion_valoracion", nullable = false)
     private Integer puntuacionValoracion;
 
-    @Column(name = "fecha_comentario")
+    @Column(name = "fecha_comentario", nullable = false)
     private LocalDate fechaComentario;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -32,52 +36,4 @@ public class Valoracion {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "pedido_id_pedido")
     private Pedido pedidoIdPedido;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getComentarioValoracion() {
-        return comentarioValoracion;
-    }
-
-    public void setComentarioValoracion(String comentarioValoracion) {
-        this.comentarioValoracion = comentarioValoracion;
-    }
-
-    public Integer getPuntuacionValoracion() {
-        return puntuacionValoracion;
-    }
-
-    public void setPuntuacionValoracion(Integer puntuacionValoracion) {
-        this.puntuacionValoracion = puntuacionValoracion;
-    }
-
-    public LocalDate getFechaComentario() {
-        return fechaComentario;
-    }
-
-    public void setFechaComentario(LocalDate fechaComentario) {
-        this.fechaComentario = fechaComentario;
-    }
-
-    public Cliente getClienteIdCliente() {
-        return clienteIdCliente;
-    }
-
-    public void setClienteIdCliente(Cliente clienteIdCliente) {
-        this.clienteIdCliente = clienteIdCliente;
-    }
-
-    public Pedido getPedidoIdPedido() {
-        return pedidoIdPedido;
-    }
-
-    public void setPedidoIdPedido(Pedido pedidoIdPedido) {
-        this.pedidoIdPedido = pedidoIdPedido;
-    }
 }
