@@ -1,34 +1,52 @@
 package com.example.lookup.entities;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
-@Entity
-@Table(name="users")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name="users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_usuario")
+    private Long idUser;
 
-    private String Nombre_Usuario;
+    @Column(name = "nombre_usuario", length = 100, nullable = false)
+    private String nombreUsuario;
+
+    @Column(name = "password", length = 20, nullable = false)
     private String password;
+
+    @Column(name = "correo", length = 100, nullable = false)
     private String correo;
+
+    @Column(name = "direccion", length = 100, nullable = false)
     private String direccion;
-    private Date fecha_registro;
-    private boolean enabled;
+
+    @Column(name = "celular", length = 9, nullable = false)
+    private String celular;
+
+    @Column(name = "fecha_Registro", nullable = false)
+    private LocalDate fechaRegistro;
+
+    @Column(name = "genero", length = 30, nullable = false)
     private String genero;
-    private Long edad;
+
+    @Column(name = "edad", nullable = false)
+    private Integer edad;
+
+    @Column(name = "dni", length = 8, nullable = false)
     private String dni;
+
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
@@ -50,116 +68,7 @@ public class User {
     )
     private List<Authority> authorities;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "idUsuario",fetch = FetchType.EAGER)
-    private List<PreferenciasUsuario> preferencia;
-
-    public User(String nombre_Usuario, String password, String correo, String direccion, Date fecha_registro, boolean enabled, String genero, Long edad, String dni, List<Authority> authorities) {
-        this.Nombre_Usuario = nombre_Usuario;
-        this.password = password;
-        this.correo = correo;
-        this.direccion = direccion;
-        this.fecha_registro = fecha_registro;
-        this.enabled = enabled;
-        this.genero = genero;
-        this.edad = edad;
-        this.dni = dni;
-        this.authorities = authorities;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getNombre_Usuario() {
-        return Nombre_Usuario;
-    }
-
-    public void setNombre_Usuario(String nombre_Usuario) {
-        Nombre_Usuario = nombre_Usuario;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
-    public Date getFecha_registro() {
-        return fecha_registro;
-    }
-
-    public void setFecha_registro(Date fecha_registro) {
-        this.fecha_registro = fecha_registro;
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-
-    public Long getEdad() {
-        return edad;
-    }
-
-    public void setEdad(Long edad) {
-        this.edad = edad;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    public List<Authority> getAuthorities() {
-        return authorities;
-    }
-
-    public void setAuthorities(List<Authority> authorities) {
-        this.authorities = authorities;
-    }
-
-    public List<PreferenciasUsuario> getPreferencia() {
-        return preferencia;
-    }
-
-    public void setPreferencia(List<PreferenciasUsuario> preferencia) {
-        this.preferencia = preferencia;
-    }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_rol")
+    private Rol idRol;
 }
