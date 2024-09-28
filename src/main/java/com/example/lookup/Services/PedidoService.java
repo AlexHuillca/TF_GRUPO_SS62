@@ -15,4 +15,8 @@ public interface PedidoService {
     List<Pedido> list();
 
     String delete(Integer id);
+
+    String ListEstadoPedido();
+
+    
 }
