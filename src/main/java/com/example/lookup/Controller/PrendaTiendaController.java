@@ -2,6 +2,7 @@ package com.example.lookup.Controller;
 
 import com.example.lookup.Services.PrendaTiendaService;
 import com.example.lookup.dtos.PrendaTiendaDTO;
+import com.example.lookup.dtos.PrendasDisponiblesDTO;
 import com.example.lookup.entities.PrendaTienda;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,7 @@ import java.util.List;
 public class PrendaTiendaController {
 
     @Autowired
-    private PrendaTiendaService prendaTIendaService;
+    private PrendaTiendaService prendaTiendaService;
     ModelMapper mp;
 
 
@@ -32,12 +33,17 @@ public class PrendaTiendaController {
     @GetMapping("/prendastiendas")
     public ResponseEntity<List<PrendaTiendaDTO>>list()
     {
-        return new ResponseEntity<List<PrendaTiendaDTO>>(Arrays.asList(mp.map(prendaTIendaService.list(),PrendaTiendaDTO[].class)),HttpStatus.OK);
+        return new ResponseEntity<List<PrendaTiendaDTO>>(Arrays.asList(mp.map(prendaTiendaService.list(),PrendaTiendaDTO[].class)),HttpStatus.OK);
     }
 
     @DeleteMapping("/Eliminar/prendatienda/{id}")
     public ResponseEntity<String> delete(@PathVariable Long id)
     {
-        return new ResponseEntity<String>(prendaTIendaService.delete(id),HttpStatus.OK);
+        return new ResponseEntity<String>(prendaTiendaService.delete(id),HttpStatus.OK);
+    }
+
+    @GetMapping("/prendasDisponibles")
+    public List<PrendasDisponiblesDTO> prendasDisponibles() {
+        return prendaTiendaService.prendasDisponibles();
     }
 }
