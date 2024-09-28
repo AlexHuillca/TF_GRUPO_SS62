@@ -21,7 +21,7 @@ public class DetallePedidoServiceImpl {
     private PedidoRepository pedidoRepository;
 
     public DetallePedidoDTO getById(Integer id) {
-        DetallePedido detallePedido = detallePedidoRepository.findById(id)
+        DetallePedido detallePedido = detallePedidoRepository.findById(Long.valueOf(id))
                 .orElseThrow(() -> new DetallePedidoNotFoundException(id));
         return convertToDTO(detallePedido);
     }
@@ -34,8 +34,8 @@ public class DetallePedidoServiceImpl {
 
     public DetallePedidoDTO create(DetallePedidoDTO detallePedidoDTO) {
         // Validar si el Pedido existe
-        Pedido pedido = pedidoRepository.findById(detallePedidoDTO.getPedidoId())
-                .orElseThrow(() -> new DetallePedidoNotFoundException(detallePedidoDTO.getPedidoId()));
+        Pedido pedido = pedidoRepository.findById(detallePedidoDTO.getIdDetallePedido())
+                .orElseThrow(() -> new DetallePedidoNotFoundException(Math.toIntExact(detallePedidoDTO.getIdDetallePedido())));
 
         DetallePedido detallePedido = new DetallePedido();
         detallePedido.setCantidad(detallePedidoDTO.getCantidad());
@@ -46,7 +46,7 @@ public class DetallePedidoServiceImpl {
     }
 
     public DetallePedidoDTO update(Integer id, DetallePedidoDTO detallePedidoDTO) {
-        DetallePedido detallePedido = detallePedidoRepository.findById(id)
+        DetallePedido detallePedido = detallePedidoRepository.findById(Long.valueOf(id))
                 .orElseThrow(() -> new DetallePedidoNotFoundException(id));
 
         detallePedido.setCantidad(detallePedidoDTO.getCantidad());
@@ -56,18 +56,18 @@ public class DetallePedidoServiceImpl {
     }
 
     public void delete(Integer id) {
-        if (!detallePedidoRepository.existsById(id)) {
+        if (!detallePedidoRepository.existsById(Long.valueOf(id))) {
             throw new DetallePedidoNotFoundException(id);
         }
-        detallePedidoRepository.deleteById(id);
+        detallePedidoRepository.deleteById(Long.valueOf(id));
     }
 
     private DetallePedidoDTO convertToDTO(DetallePedido detallePedido) {
         DetallePedidoDTO dto = new DetallePedidoDTO();
-        dto.setId(detallePedido.getId());
+        dto.setIdPrendaTienda(detallePedido.getIdPrendaTienda());
         dto.setCantidad(detallePedido.getCantidad());
         dto.setPrecio(detallePedido.getPrecio());
-        dto.setPedidoId(detallePedido.getPedido().getId());
+        dto.setCantidad(Math.toIntExact(detallePedido.getPedido().getIdPedido()));
         return dto;
     }
 }

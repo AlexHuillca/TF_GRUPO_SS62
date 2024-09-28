@@ -24,20 +24,21 @@ public class ClienteImplments implements ClienteService {
 
     @Override
     public List<Cliente>list()
-        {
+    {
         return clienteRepository.findAll();
 
-        }
+    }
 
-        @Override
-    public String delete(Integer id)
+    @Override
+    public String delete(Long id) {
+        if(clienteRepository.findById(id).isEmpty())
         {
-            if(clienteRepository.findById(id)==null)
-            {
-                return "no se encontro al cliente";
-            }else {
-                clienteRepository.deleteById(id);
-                return "cliente eliminado";
-            }
+            return "no se encontro al cliente";
+        }else {
+            clienteRepository.deleteById(id);
+            return "cliente eliminado";
         }
+    }
+
+
 }
