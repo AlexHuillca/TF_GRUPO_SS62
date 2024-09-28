@@ -43,4 +43,10 @@ public class PedidoImplements implements PedidoService {
 
 
         }
+      @Override
+    public String ListEstadoPedido()
+        {
+            return "La cantidad de estados de pedidos Pendientes es: "+pedidoRepository.countAllByEstadoPedido("pendiente")+
+                    "la cantidad de estados de pedido entregados es"+pedidoRepository.countAllByEstadoPedido("entregado");
+        }
 }
