@@ -46,4 +46,9 @@ public class PedidoController {
     {
         return new ResponseEntity<String>(pedidoService.delete(id),HttpStatus.OK);
     }
+       @GetMapping(value = "/EstadoPedidoCantidad", produces = "text/plain")
+    public ResponseEntity<String>EstadoPedidoCantidad()
+    {
+        return  new ResponseEntity<String>(pedidoService.ListEstadoPedido(),HttpStatus.OK);
+    }
 }
