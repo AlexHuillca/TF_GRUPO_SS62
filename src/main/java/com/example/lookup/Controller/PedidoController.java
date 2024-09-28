@@ -20,9 +20,6 @@ public class PedidoController {
     private PedidoService pedidoService;
     ModelMapper mp ;
 
-
-
-
     @PostMapping("/pedido")
     public ResponseEntity<PedidoDTO> save(@RequestBody PedidoDTO pedidoDTO)
     {
@@ -42,7 +39,7 @@ public class PedidoController {
 
     @DeleteMapping("/elimianrpedidios/{id}")
 
-    public ResponseEntity<String> delete(@PathVariable Integer id)
+    public ResponseEntity<String> delete(@PathVariable Long id)
     {
         return new ResponseEntity<String>(pedidoService.delete(id),HttpStatus.OK);
     }

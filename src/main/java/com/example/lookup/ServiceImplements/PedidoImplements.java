@@ -10,7 +10,6 @@ import java.util.List;
 
 @Service
 public class PedidoImplements implements PedidoService {
-
     @Autowired
     private PedidoRepository pedidoRepository;
 
@@ -29,7 +28,7 @@ public class PedidoImplements implements PedidoService {
 
 
     @Override
-    public String delete(Integer id)
+    public String delete(Long id)
         {
             if(pedidoRepository.findById(id)== null)
             {

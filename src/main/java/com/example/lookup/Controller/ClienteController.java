@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
-public class CLientecontroller {
+public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
@@ -39,7 +39,7 @@ public class CLientecontroller {
 
 
     @DeleteMapping("/eliminar/cliente/{id}")
-    public ResponseEntity<String> delete( @PathVariable Integer id)
+    public ResponseEntity<String> delete( @PathVariable Long id)
         {
         return new ResponseEntity<String>(clienteService.delete(id),HttpStatus.OK);
         }

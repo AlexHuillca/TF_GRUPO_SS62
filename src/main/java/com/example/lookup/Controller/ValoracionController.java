@@ -42,7 +42,7 @@ ModelMapper mp;
 
 
     @DeleteMapping("/eliminar/Valoracion/{id}")
-    public ResponseEntity<String> delete (@PathVariable Integer id)
+    public ResponseEntity<String> delete (@PathVariable Long id)
     {
         return new ResponseEntity<String>(valoracionService.Eliminar(id),HttpStatus.OK);
     }

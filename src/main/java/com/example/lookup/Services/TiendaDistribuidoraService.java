@@ -10,9 +10,6 @@ import java.util.List;
 @Primary
 public interface TiendaDistribuidoraService {
     TiendaDistribuidora save(TiendaDistribuidora t);
-
-
     List<TiendaDistribuidora> list();
-
-    String delete(Integer id);
+    String delete(Long id);
 }

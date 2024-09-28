@@ -9,15 +9,7 @@ import java.util.List;
 @Service
 @Primary
 public interface PreferenciaUsuarioService {
-    PreferenciasUsuario save(PreferenciasUsuario preferenciasUsuario);
-
-
-
-    List<PreferenciasUsuario> list(Integer idusuario);
-
-    String eliminar(Integer id);
-
-    List<PreferenciasUsuario> list(Long idusuario);
-
-    String eliminar(Long id);
+    public PreferenciasUsuario save(PreferenciasUsuario preferenciasUsuario);
+    public List<PreferenciasUsuario> list();
+    public String eliminar(Long id);
 }

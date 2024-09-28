@@ -36,16 +36,19 @@ public class User {
     private String celular;
 
     @Column(name = "fecha_Registro", nullable = false)
-    private LocalDate fechaRegistro;
+    private Date fechaRegistro;
 
     @Column(name = "genero", length = 30, nullable = false)
     private String genero;
 
     @Column(name = "edad", nullable = false)
-    private Integer edad;
+    private Long edad;
 
     @Column(name = "dni", length = 8, nullable = false)
     private String dni;
+
+    @Column(name = "enabled", nullable = false)
+    private Boolean enabled;
 
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)

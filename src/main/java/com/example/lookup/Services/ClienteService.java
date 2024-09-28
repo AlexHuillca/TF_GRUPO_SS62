@@ -10,9 +10,6 @@ import java.util.List;
 @Primary
 public interface ClienteService {
     Cliente save(Cliente c);
-
-
     List<Cliente> list();
-
-    String delete(Integer id);
+    String delete(Long id);
 }

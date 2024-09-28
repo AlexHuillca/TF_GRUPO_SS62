@@ -1,6 +1,6 @@
 package com.example.lookup.Controller;
 
-import com.example.lookup.Services.PrendaTIendaService;
+import com.example.lookup.Services.PrendaTiendaService;
 import com.example.lookup.dtos.PrendaTiendaDTO;
 import com.example.lookup.entities.PrendaTienda;
 import org.modelmapper.ModelMapper;
@@ -17,7 +17,7 @@ import java.util.List;
 public class PrendaTiendaController {
 
     @Autowired
-    private PrendaTIendaService prendaTIendaService;
+    private PrendaTiendaService prendaTIendaService;
     ModelMapper mp;
 
 
@@ -36,7 +36,7 @@ public class PrendaTiendaController {
     }
 
     @DeleteMapping("/Eliminar/prendatienda/{id}")
-    public ResponseEntity<String> delete(@PathVariable Integer id)
+    public ResponseEntity<String> delete(@PathVariable Long id)
     {
         return new ResponseEntity<String>(prendaTIendaService.delete(id),HttpStatus.OK);
     }

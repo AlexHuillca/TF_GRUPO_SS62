@@ -9,10 +9,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ValoracionRepositorio extends JpaRepository<Valoracion,Integer> {
-
+public interface ValoracionRepositorio extends JpaRepository<Valoracion,Long> {
     @Query("SELECT new com.example.lookup.dtos.ValoracionDTOResumen(v.comentarioValoracion, v.puntuacionValoracion)"
     + "from Valoracion v")
     List<ValoracionDTOResumen>ResumenComentarios();
-
 }

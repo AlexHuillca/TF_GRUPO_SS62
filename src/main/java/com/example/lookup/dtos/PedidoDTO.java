@@ -1,42 +1,29 @@
 package com.example.lookup.dtos;
 
-import com.example.lookup.entities.Cliente;
-import com.example.lookup.entities.MetodoPago;
-import com.example.lookup.entities.Prenda;
-import com.example.lookup.entities.Valoracion;
+import com.example.lookup.entities.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
-@Data
-@NoArgsConstructor
+
+@Getter
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class PedidoDTO {
-private Integer id;
-
+    private Long idPedido;
     private LocalDate fechaPedido;
-
-    private String estadoPedido;
-
     private String direccionEntrega;
-
     private BigDecimal totalPedido;
-
     private String estadoEnvio;
-
     private Integer numeroSeguimiento;
-
+    private Integer numFactura;
     private Cliente idCliente;
-
     private MetodoPago idMetodoPago;
-
-
-    private Set<Prenda> prendas = new LinkedHashSet<>();
-
-    private Set<Valoracion> valoracións = new LinkedHashSet<>();
+    private EstadoPedido idEstadoPedido;
+    private Set<Valoracion> valoracions = new LinkedHashSet<>();
 }

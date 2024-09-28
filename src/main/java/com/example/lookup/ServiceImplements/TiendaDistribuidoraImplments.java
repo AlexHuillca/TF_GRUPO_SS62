@@ -27,7 +27,7 @@ public class TiendaDistribuidoraImplments implements TiendaDistribuidoraService 
     }
 
     @Override
-    public String delete(Integer id)
+    public String delete(Long id)
     {
         if(tiendaDistribuidoraRepository.findById(id)== null)
         {

@@ -36,7 +36,7 @@ public class TiendaDistribuidoraController {
     }
 
     @DeleteMapping("/eliminar/tiendaDistribuidora{id}")
-    public ResponseEntity<String>delete(@PathVariable Integer id)
+    public ResponseEntity<String>delete(@PathVariable Long id)
     {
         return new ResponseEntity<String>(String.valueOf(tiendaDistribuidoraService.delete(id)),HttpStatus.OK);
     }
