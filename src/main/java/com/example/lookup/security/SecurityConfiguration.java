@@ -66,6 +66,41 @@ public class SecurityConfiguration {
                 .requestMatchers(HttpMethod.GET, "/api/preferencia/{id}").hasAnyRole("ADMIN", "CLIENTE")
                 .requestMatchers(HttpMethod.DELETE, "/api/preferencia/**").hasRole("ADMIN")
 
+                .requestMatchers(HttpMethod.POST, "/api/prenda/**").hasAnyRole("ADMIN", "CLIENTE")
+                .requestMatchers(HttpMethod.GET, "/api/prendas/**").hasAnyRole("ADMIN", "CLIENTE")
+                .requestMatchers(HttpMethod.DELETE, "/api/eliminar/prenda/{id}").hasRole("ADMIN")
+
+                .requestMatchers(HttpMethod.POST, "/api/prendatienda/**").hasRole("CLIENTE")
+                .requestMatchers(HttpMethod.GET, "/api/prendastiendas/**").hasAnyRole("ADMIN", "CLIENTE")
+                .requestMatchers(HttpMethod.DELETE, "/api/Eliminar/prendatienda/{id}").hasRole("ADMIN")
+
+                .requestMatchers(HttpMethod.POST, "/api/AgregarPreferencia/**").hasAnyRole("ADMIN", "CLIENTE")
+                .requestMatchers(HttpMethod.GET, "/api/preferencias/**").hasAnyRole("ADMIN", "CLIENTE")
+                .requestMatchers(HttpMethod.DELETE, "/api/eliminar/preferencia/{id}").hasRole("ADMIN")
+
+                .requestMatchers(HttpMethod.POST, "/api/pedido/**").hasRole("CLIENTE")
+                .requestMatchers(HttpMethod.GET, "/api/pedidos/**").hasAnyRole("ADMIN", "CLIENTE")
+                .requestMatchers(HttpMethod.DELETE, "/api/elimianrpedidios/{id}").hasRole("ADMIN")
+
+                .requestMatchers(HttpMethod.POST, "/api/detallePedido/**").hasRole("CLIENTE")
+                .requestMatchers(HttpMethod.GET, "/api/detallePedido/{id}").hasAnyRole("ADMIN", "CLIENTE")
+                .requestMatchers(HttpMethod.PUT, "/api/detallePedido/{id}").hasAnyRole("ADMIN", "CLIENTE")
+                .requestMatchers(HttpMethod.DELETE, "/api/detallePedido/{id}").hasRole("ADMIN")
+
+                .requestMatchers(HttpMethod.POST, "/api/decuento/**").hasAnyRole("ADMIN", "CLIENTE")
+                .requestMatchers(HttpMethod.GET, "/api/descuentos/**").hasAnyRole("ADMIN", "CLIENTE")
+                .requestMatchers(HttpMethod.DELETE, "/api/descuento/{id}").hasRole("ADMIN")
+
+                .requestMatchers(HttpMethod.POST, "/api/prendadistribuidora/**").hasRole("CLIENTE")
+                .requestMatchers(HttpMethod.GET, "/api/tiendasdistribuidoras/**").hasAnyRole("ADMIN", "CLIENTE")
+                .requestMatchers(HttpMethod.DELETE, "/api/tiendaDistribuidora/{id}").hasRole("ADMIN")
+
+                .requestMatchers(HttpMethod.GET, "/api/cometarios/**").hasAnyRole("ADMIN", "CLIENTE")
+                .requestMatchers(HttpMethod.POST, "/api/valoracion/**").hasAnyRole("ADMIN", "CLIENTE")
+                .requestMatchers(HttpMethod.DELETE, "/eliminar/Valoracion/{id}").hasRole("ADMIN")
+
+
+
                 .requestMatchers("/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
         );

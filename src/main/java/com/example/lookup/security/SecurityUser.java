@@ -25,7 +25,7 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getNombre_Usuario();
+        return user.getNombreUsuario();
     }
 
     @Override
@@ -45,6 +45,6 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public boolean isEnabled() {
-        return user.isEnabled();
+        return true;
     }
 }

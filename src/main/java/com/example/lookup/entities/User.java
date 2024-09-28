@@ -56,8 +56,8 @@ public class User {
             name = "users_authorities",
             joinColumns = {
                     @JoinColumn(
-                            name="user_id",
-                            referencedColumnName = "id",
+                            name = "user_id",
+                            referencedColumnName = "id_usuario", // Cambiar 'id' a 'id_usuario'
                             nullable = false
                     )
             },
@@ -71,7 +71,11 @@ public class User {
     )
     private List<Authority> authorities;
 
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_rol")
     private Rol idRol;
+
+
+
 }
