@@ -33,7 +33,6 @@ public class UserServiceImpl implements UserService {
         return userFound;
     }
 
-
     @Override
     public User register(DTOUser user) {
 
@@ -45,10 +44,8 @@ public class UserServiceImpl implements UserService {
             };
 
             User newUser = new User();
-            newUser.setNombre_Usuario(user.getNombre_Usuario());
-
-            newUser.setFecha_registro(user.getFecha_registro());
-
+            newUser.setNombreUsuario(user.getNombre_Usuario());
+            newUser.setFechaRegistro(user.getFecha_registro());
             newUser.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
             newUser.setEnabled(true);
             newUser.setEdad(user.getEdad());

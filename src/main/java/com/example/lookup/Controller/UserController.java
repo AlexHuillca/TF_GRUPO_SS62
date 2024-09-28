@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 
-@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api")
 public class UserController {
@@ -71,7 +70,7 @@ public class UserController {
         SecurityUser securityUser = (SecurityUser) this.userDetailsService.loadUserByUsername(
                 user.getNombre_Usuario());
         String jwt = jwtUtilService.generateToken(securityUser);
-        Long id = securityUser.getUser().getId();
+        Long id = securityUser.getUser().getIdUser();
         return new ResponseEntity<DTOToken>(new DTOToken(jwt, id), HttpStatus.OK);
 
     }

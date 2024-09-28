@@ -1,11 +1,11 @@
 package com.example.lookup.ServiceImplements;
 
-import com.example.lookup.Services.DetallePedidoService;
 import com.example.lookup.dtos.DetallePedidoDTO;
 import com.example.lookup.entities.DetallePedido;
+import com.example.lookup.entities.Pedido;
 import com.example.lookup.exceptions.DetallePedidoNotFoundException;
-import com.example.lookup.exceptions.IncompleteDataException;
 import com.example.lookup.repository.DetallePedidoRepository;
+import com.example.lookup.repository.PedidoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,69 +13,61 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class DetallePedidoServiceImpl implements DetallePedidoService {
-
+public class DetallePedidoServiceImpl {
     @Autowired
     private DetallePedidoRepository detallePedidoRepository;
 
     @Autowired
     private PedidoRepository pedidoRepository;
 
-    @Override
-    public DetallePedido findById(Integer id) {
-        DetallePedido detallePedidoFound = detallePedidoRepository.findById(id).orElse(null);
-        if (detallePedidoFound == null) {
-            throw new DetallePedidoNotFoundException("No se encontró un DetallePedido con el id: " + id);
-        }
-        return detallePedidoFound;
+    public DetallePedidoDTO getById(Integer id) {
+        DetallePedido detallePedido = detallePedidoRepository.findById(Long.valueOf(id))
+                .orElseThrow(() -> new DetallePedidoNotFoundException(id));
+        return convertToDTO(detallePedido);
     }
 
-    @Override
-    public DetallePedido create(DetallePedidoDTO detallePedidoDTO) {
-        // Validar que cantidad y precio sean mayores a 0
-        if (detallePedidoDTO.getCantidad() <= 0 || detallePedidoDTO.getPrecio() <= 0) {
-            throw new IncompleteDataException("Cantidad y precio deben ser mayores a 0");
-        }
+    public List<DetallePedidoDTO> getAll() {
+        return detallePedidoRepository.findAll().stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+    }
 
+    public DetallePedidoDTO create(DetallePedidoDTO detallePedidoDTO) {
         // Validar si el Pedido existe
-        Pedido pedido = pedidoRepository.findById(detallePedidoDTO.getPedidoId())
-                .orElseThrow(() -> new DetallePedidoNotFoundException("No se encontró el Pedido con id: " + detallePedidoDTO.getPedidoId()));
+        Pedido pedido = pedidoRepository.findById(detallePedidoDTO.getIdDetallePedido())
+                .orElseThrow(() -> new DetallePedidoNotFoundException(Math.toIntExact(detallePedidoDTO.getIdDetallePedido())));
 
-        // Crear el nuevo DetallePedido
-        DetallePedido nuevoDetallePedido = new DetallePedido();
-        nuevoDetallePedido.setCantidad(detallePedidoDTO.getCantidad());
-        nuevoDetallePedido.setPrecio(detallePedidoDTO.getPrecio());
-        nuevoDetallePedido.setPedido(pedido);
+        DetallePedido detallePedido = new DetallePedido();
+        detallePedido.setCantidad(detallePedidoDTO.getCantidad());
+        detallePedido.setPrecio(detallePedidoDTO.getPrecio());
+        detallePedido.setPedido(pedido);
 
-        return detallePedidoRepository.save(nuevoDetallePedido);
+        return convertToDTO(detallePedidoRepository.save(detallePedido));
     }
 
-    @Override
-    public DetallePedido update(Integer id, DetallePedidoDTO detallePedidoDTO) {
-        DetallePedido detallePedidoFound = detallePedidoRepository.findById(id)
-                .orElseThrow(() -> new DetallePedidoNotFoundException("No se encontró un DetallePedido con el id: " + id));
+    public DetallePedidoDTO update(Integer id, DetallePedidoDTO detallePedidoDTO) {
+        DetallePedido detallePedido = detallePedidoRepository.findById(Long.valueOf(id))
+                .orElseThrow(() -> new DetallePedidoNotFoundException(id));
 
-        // Validar que cantidad y precio sean mayores a 0
-        if (detallePedidoDTO.getCantidad() <= 0 || detallePedidoDTO.getPrecio() <= 0) {
-            throw new IncompleteDataException("Cantidad y precio deben ser mayores a 0");
-        }
+        detallePedido.setCantidad(detallePedidoDTO.getCantidad());
+        detallePedido.setPrecio(detallePedidoDTO.getPrecio());
 
-        detallePedidoFound.setCantidad(detallePedidoDTO.getCantidad());
-        detallePedidoFound.setPrecio(detallePedidoDTO.getPrecio());
-
-        return detallePedidoRepository.save(detallePedidoFound);
+        return convertToDTO(detallePedidoRepository.save(detallePedido));
     }
 
-    @Override
     public void delete(Integer id) {
-        if (!detallePedidoRepository.existsById(id)) {
-            throw new DetallePedidoNotFoundException("No se encontró un DetallePedido con el id: " + id);
+        if (!detallePedidoRepository.existsById(Long.valueOf(id))) {
+            throw new DetallePedidoNotFoundException(id);
         }
-        detallePedidoRepository.deleteById(id);
+        detallePedidoRepository.deleteById(Long.valueOf(id));
     }
 
-    @Override
-    public List<DetallePedido> list() {
-        return detallePedidoRepository.findAll();
+    private DetallePedidoDTO convertToDTO(DetallePedido detallePedido) {
+        DetallePedidoDTO dto = new DetallePedidoDTO();
+        dto.setIdPrendaTienda(detallePedido.getIdPrendaTienda());
+        dto.setCantidad(detallePedido.getCantidad());
+        dto.setPrecio(detallePedido.getPrecio());
+        dto.setCantidad(Math.toIntExact(detallePedido.getPedido().getIdPedido()));
+        return dto;
     }
 }

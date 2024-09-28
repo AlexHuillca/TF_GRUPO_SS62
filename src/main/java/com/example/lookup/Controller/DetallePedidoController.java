@@ -34,6 +34,5 @@ public class DetallePedidoController {
         detallePedidoServiceImpl.delete(id);
         return ResponseEntity.noContent().build();
     }
-
-
+    
 }

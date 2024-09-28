@@ -1,42 +1,63 @@
 package com.example.lookup.entities;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
-@Entity
-@Table(name="users")
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity
+@Table(name="users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id_usuario")
+    private Long idUser;
 
-    private String Nombre_Usuario;
+    @Column(name = "nombre_usuario", length = 100, nullable = false)
+    private String nombreUsuario;
+
+    @Column(name = "password", length = 20, nullable = false)
     private String password;
+
+    @Column(name = "correo", length = 100, nullable = false)
     private String correo;
+
+    @Column(name = "direccion", length = 100, nullable = false)
     private String direccion;
-    private Date fecha_registro;
-    private boolean enabled;
+
+    @Column(name = "celular", length = 9, nullable = false)
+    private String celular;
+
+    @Column(name = "fecha_Registro", nullable = false)
+    private Date fechaRegistro;
+
+    @Column(name = "genero", length = 30, nullable = false)
     private String genero;
+
+    @Column(name = "edad", nullable = false)
     private Long edad;
+
+    @Column(name = "dni", length = 8, nullable = false)
     private String dni;
+
+    @Column(name = "enabled", nullable = false)
+    private Boolean enabled;
+
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_authorities",
             joinColumns = {
                     @JoinColumn(
-                            name="user_id",
-                            referencedColumnName = "id",
+                            name = "user_id",
+                            referencedColumnName = "id_usuario", // Cambiar 'id' a 'id_usuario'
                             nullable = false
                     )
             },
@@ -50,16 +71,11 @@ public class User {
     )
     private List<Authority> authorities;
 
-    public User(String nombre_Usuario, String password, String correo, String direccion, Date fecha_registro, boolean enabled, String genero, Long edad, String dni, List<Authority> authorities) {
-        this.Nombre_Usuario = nombre_Usuario;
-        this.password = password;
-        this.correo = correo;
-        this.direccion = direccion;
-        this.fecha_registro = fecha_registro;
-        this.enabled = enabled;
-        this.genero = genero;
-        this.edad = edad;
-        this.dni = dni;
-        this.authorities = authorities;
-    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_rol")
+    private Rol idRol;
+
+
+
 }

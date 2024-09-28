@@ -3,18 +3,17 @@ package com.example.lookup.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name="detalle_pedido")
 public class DetallePedido {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_detalle_pedido", nullable = false)
-    private Integer id;
+    @Column(name = "id_detalle_pedido")
+    private Long idDetallePedido;
 
     @Column(name = "precio", nullable = false)
     private Double precio;
@@ -22,8 +21,11 @@ public class DetallePedido {
     @Column(name = "cantidad", nullable = false)
     private Integer cantidad;
 
-    @ManyToOne
-    @JoinColumn(name = "pedido_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "pedido_id")
     private Pedido pedido;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "prenda_tienda_id")
+    private PrendaTienda idPrendaTienda;
 }
