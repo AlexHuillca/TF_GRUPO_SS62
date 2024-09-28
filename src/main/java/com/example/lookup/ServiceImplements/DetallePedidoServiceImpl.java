@@ -1,6 +1,7 @@
 package com.example.lookup.ServiceImplements;
 
 import com.example.lookup.dtos.DetallePedidoDTO;
+import com.example.lookup.dtos.PrendasSeleccionadasDTO;
 import com.example.lookup.entities.DetallePedido;
 import com.example.lookup.entities.Pedido;
 import com.example.lookup.exceptions.DetallePedidoNotFoundException;
@@ -69,5 +70,8 @@ public class DetallePedidoServiceImpl {
         dto.setPrecio(detallePedido.getPrecio());
         dto.setCantidad(Math.toIntExact(detallePedido.getPedido().getIdPedido()));
         return dto;
+    }
+    public List<PrendasSeleccionadasDTO> prendasSeleccionadas (Long pIdCliente){
+        return detallePedidoRepository.prendasSeleccionadas(pIdCliente);
     }
 }

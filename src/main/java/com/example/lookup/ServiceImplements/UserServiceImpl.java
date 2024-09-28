@@ -4,6 +4,7 @@ package com.example.lookup.ServiceImplements;
 
 import com.example.lookup.Services.UserService;
 import com.example.lookup.dtos.DTOUser;
+import com.example.lookup.dtos.UserPorGeneroDTO;
 import com.example.lookup.entities.AuthorityName;
 import com.example.lookup.entities.User;
 import com.example.lookup.exceptions.IncompleteDataException;
@@ -88,6 +89,13 @@ public class UserServiceImpl implements UserService {
     public List<User> list() {
         return userRepository.findAll();
     }
+
+    @Override
+    public List<UserPorGeneroDTO> usuariosPorGenero() {
+        return userRepository.usuariosPorGenero();
+    }
+
+
 }
 
 //un usuario no puede tener la contraseña o nombre de usuario menor que 4 digitos

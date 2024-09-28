@@ -5,6 +5,7 @@ package com.example.lookup.Controller;
 import com.example.lookup.Services.UserService;
 import com.example.lookup.dtos.DTOToken;
 import com.example.lookup.dtos.DTOUser;
+import com.example.lookup.dtos.UserPorGeneroDTO;
 import com.example.lookup.entities.User;
 import com.example.lookup.security.JwtUtilService;
 import com.example.lookup.security.SecurityUser;
@@ -75,5 +76,8 @@ public class UserController {
 
     }
 
-
+    @GetMapping("/userPorGenero")
+    public List<UserPorGeneroDTO> usuariosPorGenero() {
+        return userService.usuariosPorGenero();
+    }
 }

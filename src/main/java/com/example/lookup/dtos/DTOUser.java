@@ -17,6 +17,7 @@ public class DTOUser {
     private Date fecha_registro;
     private boolean enabled;
     private String type;
+    private String celular;
     private String genero;
     private Long edad;
     private String dni;
