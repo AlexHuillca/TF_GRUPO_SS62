@@ -8,11 +8,8 @@ import java.util.List;
 
 @Service
 @Primary
-public interface PrendaTIendaService {
+public interface PrendaTiendaService {
     PrendaTienda save(PrendaTienda p);
-
-
     List<PrendaTienda> list();
-
-    String delete(Integer id);
+    String delete(Long id);
 }

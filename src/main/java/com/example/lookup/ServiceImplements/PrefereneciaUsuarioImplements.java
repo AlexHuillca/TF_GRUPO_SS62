@@ -2,8 +2,7 @@ package com.example.lookup.ServiceImplements;
 
 import com.example.lookup.Services.PreferenciaUsuarioService;
 import com.example.lookup.entities.PreferenciasUsuario;
-import com.example.lookup.entities.User;
-import com.example.lookup.repository.PreferenciasRepository;
+import com.example.lookup.repository.PreferenciaUsuarioRepository;
 import com.example.lookup.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +13,8 @@ import java.util.List;
 @Service
 public class PrefereneciaUsuarioImplements implements PreferenciaUsuarioService {
     @Autowired
-    private PreferenciasRepository preferenciaUsarioRepository;
-    @Autowired
-    private UserRepository usarioRepository;
+    private PreferenciaUsuarioRepository preferenciaUsarioRepository;
+
     @Override
     public PreferenciasUsuario save(PreferenciasUsuario preferenciasUsuario)
     {
@@ -24,21 +22,8 @@ public class PrefereneciaUsuarioImplements implements PreferenciaUsuarioService 
     }
 
     @Override
-    public List<PreferenciasUsuario> list(Integer idusuario) {
-        return null;
-    }
-
-
-    @Override
-    public String eliminar(Integer id) {
-        return null;
-    }
-
-
-    @Override
-    public List<PreferenciasUsuario> list(Long idusuario)
-    {
-        return usarioRepository.findById(idusuario).map(User::getPreferencia).orElseThrow();
+    public List<PreferenciasUsuario> list() {
+        return preferenciaUsarioRepository.findAll();
     }
 
     @Override

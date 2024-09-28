@@ -1,38 +1,37 @@
 package com.example.lookup.ServiceImplements;
 
-import com.example.lookup.Services.PrendaTIendaService;
+import com.example.lookup.Services.PrendaTiendaService;
 import com.example.lookup.entities.PrendaTienda;
-import com.example.lookup.repository.PrendaTientda_repository;
+import com.example.lookup.repository.PrendaTiendaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class PrendaTiendaImplements implements PrendaTIendaService {
-
+public class PrendaTiendaImplements implements PrendaTiendaService {
     @Autowired
-    private PrendaTientda_repository prendaTientdaRepository;
+    private PrendaTiendaRepository prendaTiendaRepository;
 
     @Override
     public PrendaTienda save(PrendaTienda p)
     {
-        return prendaTientdaRepository.save(p);
+        return prendaTiendaRepository.save(p);
     }
 
     @Override
     public List<PrendaTienda>list()
     {
-        return prendaTientdaRepository.findAll();
+        return prendaTiendaRepository.findAll();
     }
 
     @Override
-    public String delete(Integer id)
+    public String delete(Long id)
     {
-        if(prendaTientdaRepository.findById(id)==null)
+        if(prendaTiendaRepository.findById(id)==null)
         {
             return" nose encontro la prenda seleccionada";
-        }else {prendaTientdaRepository.deleteById(id);
+        }else {prendaTiendaRepository.deleteById(id);
         return "prenda eliminada de la base de datos";}
     }
 }

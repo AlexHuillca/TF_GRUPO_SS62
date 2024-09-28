@@ -9,10 +9,7 @@ import java.util.List;
 @Service
 @Primary
 public interface DescuentoService {
-    Descuento save(Descuento d);
-
-
-    List<Descuento> list();
-
-    String delete(Integer id);
+    public Descuento save(Descuento d);
+    public List<Descuento> list();
+    public String delete(Long id);
 }

@@ -29,7 +29,7 @@ public class ValoracionImplements implements ValoracionService {
     }
 
     @Override
-    public String Eliminar(Integer id)
+    public String Eliminar(Long id)
     {
         if(valoracionRepositorio.findById(id)==null)
         {

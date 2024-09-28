@@ -1,6 +1,6 @@
 package com.example.lookup.Controller;
 
-import com.example.lookup.Services.PrendaSAervice;
+import com.example.lookup.Services.PrendaService;
 import com.example.lookup.dtos.PrendaDTO;
 import com.example.lookup.entities.Prenda;
 import org.modelmapper.ModelMapper;
@@ -17,7 +17,7 @@ import java.util.List;
 public class PrendaContoller {
 
     @Autowired
-    private PrendaSAervice prendaSAervice;
+    private PrendaService prendaService;
 
     ModelMapper mp;
 
@@ -27,7 +27,7 @@ public class PrendaContoller {
     {
         Prenda p= mp.map(prendaDTO,Prenda.class);
 
-        prendaSAervice.save(p);
+        prendaService.save(p);
 
         return  new ResponseEntity<PrendaDTO>(prendaDTO, HttpStatus.OK);
     }
@@ -36,14 +36,14 @@ public class PrendaContoller {
     @GetMapping("/prendas")
     public ResponseEntity<List<PrendaDTO>>list()
     {
-        return new ResponseEntity<List<PrendaDTO>>(Arrays.asList(mp.map(prendaSAervice.list(),PrendaDTO.class)),HttpStatus.OK);
+        return new ResponseEntity<List<PrendaDTO>>(Arrays.asList(mp.map(prendaService.list(),PrendaDTO.class)),HttpStatus.OK);
     }
 
     @DeleteMapping("/eliminar/prenda/{id}")
 
-    public ResponseEntity<String>delete(@RequestBody Integer id)
+    public ResponseEntity<String>delete(@RequestBody Long id)
     {
-        return new ResponseEntity<String>(prendaSAervice.delelte(id),HttpStatus.OK);
+        return new ResponseEntity<String>(prendaService.delete(id),HttpStatus.OK);
     }
 
 

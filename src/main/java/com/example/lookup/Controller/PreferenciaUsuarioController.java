@@ -35,15 +35,15 @@ public class PreferenciaUsuarioController {
 
 
     @GetMapping("/preferencias/{id}")
-    public ResponseEntity<List<PreferenciadeusuarioDTO>>list(@PathVariable Integer id)
+    public ResponseEntity<List<PreferenciadeusuarioDTO>>list(@PathVariable Long id)
     {
         mp= new ModelMapper();
-        return new ResponseEntity<List<PreferenciadeusuarioDTO>>(Arrays.asList(mp.map(preferenciaUsuarioService.list(id),PreferenciadeusuarioDTO[].class)),HttpStatus.OK);
+        return new ResponseEntity<List<PreferenciadeusuarioDTO>>(Arrays.asList(mp.map(preferenciaUsuarioService.list(),PreferenciadeusuarioDTO[].class)),HttpStatus.OK);
     }
 
 
     @DeleteMapping("/eliminar/preferencia/{id}")
-    public ResponseEntity<String> delete(@RequestBody Integer id)
+    public ResponseEntity<String> delete(@RequestBody Long id)
     {
         mp= new ModelMapper();
 

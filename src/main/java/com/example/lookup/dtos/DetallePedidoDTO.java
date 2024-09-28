@@ -1,21 +1,21 @@
 package com.example.lookup.dtos;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import com.example.lookup.entities.Pedido;
+import com.example.lookup.entities.PrendaTienda;
+import jakarta.persistence.Column;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import lombok.*;
 
-@Data
-@AllArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class DetallePedidoDTO {
-    private Integer id;
+    private Long idDetallePedido;
     private Double precio;
     private Integer cantidad;
-    private Integer pedidoId;
-
-    public DetallePedidoDTO() {
-
-    }
+    private Pedido pedido;
+    private PrendaTienda idPrendaTienda;
 }

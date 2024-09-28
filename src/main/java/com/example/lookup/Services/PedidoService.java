@@ -10,9 +10,6 @@ import java.util.List;
 @Primary
 public interface PedidoService {
     Pedido save(Pedido p);
-
-
     List<Pedido> list();
-
-    String delete(Integer id);
+    String delete(Long id);
 }

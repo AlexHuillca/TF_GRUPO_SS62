@@ -8,11 +8,8 @@ import java.util.List;
 
 @Service
 @Primary
-public interface PrendaSAervice {
+public interface PrendaService {
     Prenda save(Prenda p);
-
-
     List<Prenda> list();
-
-    String  delelte(Integer id);
+    String  delete (Long id);
 }

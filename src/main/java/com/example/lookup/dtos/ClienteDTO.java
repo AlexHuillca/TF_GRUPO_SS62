@@ -1,26 +1,24 @@
 package com.example.lookup.dtos;
 
-
 import com.example.lookup.entities.Pedido;
 import com.example.lookup.entities.User;
 import com.example.lookup.entities.Valoracion;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 
+import java.util.ArrayList;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
-@Data
-@NoArgsConstructor
+
+@Getter
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class ClienteDTO {
-    private Integer id;
-
+    private Long idCliente;
     private String nombreCliente;
-
     private User idUsuario;
-
-    private Set<Pedido> pedidos = new LinkedHashSet<>();
-
-    private Set<Valoracion> valoracións = new LinkedHashSet<>();
+    private List<Pedido> pedidos = new ArrayList<>();
+    private List<Valoracion> valoracions = new ArrayList<>();
 }

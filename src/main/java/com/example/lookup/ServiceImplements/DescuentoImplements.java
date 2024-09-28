@@ -10,7 +10,6 @@ import java.util.List;
 
 @Service
 public class DescuentoImplements implements DescuentoService {
-
     @Autowired
     private DescuentoRepository descuentoRepository;
 
@@ -20,14 +19,14 @@ public class DescuentoImplements implements DescuentoService {
         return descuentoRepository.save(d);
     }
 
-
     @Override
     public List<Descuento> list()
     {
         return descuentoRepository.findAll();
     }
+
     @Override
-    public String delete(Integer id)
+    public String delete(Long id)
     {
         if(descuentoRepository.findById(id)== null)
         {

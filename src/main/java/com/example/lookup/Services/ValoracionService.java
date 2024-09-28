@@ -10,9 +10,6 @@ import java.util.List;
 @Primary
 public interface ValoracionService {
     List<ValoracionDTOResumen>resumen_comentario();
-
     Valoracion save(Valoracion v);
-
-
-    String Eliminar(Integer id);
+    String Eliminar(Long id);
 }

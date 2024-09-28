@@ -34,7 +34,7 @@ ModelMapper mp ;
 
     }
     @DeleteMapping("/eliminar/descuento/{id}")
-    public ResponseEntity<String>delete(@PathVariable Integer id)
+    public ResponseEntity<String>delete(@PathVariable Long id)
     {
         return new ResponseEntity<String>(descuentoService.delete(id),HttpStatus.OK);
     }

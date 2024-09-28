@@ -2,26 +2,20 @@ package com.example.lookup.dtos;
 
 import com.example.lookup.entities.Descuento;
 import com.example.lookup.entities.PrendaTienda;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.Column;
+import jakarta.persistence.OneToMany;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
-@NoArgsConstructor
+@Getter
+@Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class TiendaDistribuidoraDTO {
-
-
-    private Integer id;
-
+    private Long idTienda;
     private String nombreTienda;
-
-    private Integer prendaIdPrenda;
-
     private List<Descuento> descuentos = new ArrayList<>();
-
     private List<PrendaTienda> prendaTiendas = new ArrayList<>();
 }
