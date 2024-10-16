@@ -8,56 +8,33 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name="users")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_usuario")
-    private Long idUser;
+    private Long id;
 
-    @Column(name = "nombre_usuario", length = 100, nullable = false)
-    private String nombreUsuario;
-
-    @Column(name = "password", length = 20, nullable = false)
+    private String Nombre_Usuario;
     private String password;
-
-    @Column(name = "correo", length = 100, nullable = false)
     private String correo;
-
-    @Column(name = "direccion", length = 100, nullable = false)
     private String direccion;
-
-    @Column(name = "celular", length = 9)
-    private String celular;
-
-    @Column(name = "fecha_Registro", nullable = false)
-    private Date fechaRegistro;
-
-    @Column(name = "genero", length = 30, nullable = false)
+    private Date fecha_registro;
+    private boolean enabled;
     private String genero;
-
-    @Column(name = "edad", nullable = false)
     private Long edad;
-
-    @Column(name = "dni", length = 8, nullable = false)
     private String dni;
-
-    @Column(name = "enabled", nullable = false)
-    private Boolean enabled;
-
     @JsonIgnore
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_authorities",
             joinColumns = {
                     @JoinColumn(
-                            name = "user_id",
-                            referencedColumnName = "id_usuario", // Cambiar 'id' a 'id_usuario'
+                            name="user_id",
+                            referencedColumnName = "id",
                             nullable = false
                     )
             },
@@ -71,11 +48,21 @@ public class User {
     )
     private List<Authority> authorities;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "user",fetch = FetchType.EAGER)
+    private List<Preferencias_usuarios> preferencia;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_rol")
-    private Rol idRol;
-
-
+    public User(String nombre_Usuario, String password, String correo, String direccion, Date fecha_registro, boolean enabled, String genero, Long edad, String dni, List<Authority> authorities) {
+        this.Nombre_Usuario = nombre_Usuario;
+        this.password = password;
+        this.correo = correo;
+        this.direccion = direccion;
+        this.fecha_registro = fecha_registro;
+        this.enabled = enabled;
+        this.genero = genero;
+        this.edad = edad;
+        this.dni = dni;
+        this.authorities = authorities;
+    }
 
 }

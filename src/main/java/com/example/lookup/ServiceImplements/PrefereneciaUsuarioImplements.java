@@ -1,9 +1,8 @@
 package com.example.lookup.ServiceImplements;
 
 import com.example.lookup.Services.PreferenciaUsuarioService;
-import com.example.lookup.entities.PreferenciasUsuario;
+import com.example.lookup.entities.Preferencias_usuarios;
 import com.example.lookup.repository.PreferenciaUsuarioRepository;
-import com.example.lookup.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,13 +15,13 @@ public class PrefereneciaUsuarioImplements implements PreferenciaUsuarioService 
     private PreferenciaUsuarioRepository preferenciaUsarioRepository;
 
     @Override
-    public PreferenciasUsuario save(PreferenciasUsuario preferenciasUsuario)
+    public Preferencias_usuarios save(Preferencias_usuarios preferenciasUsuario)
     {
         return preferenciaUsarioRepository.save(preferenciasUsuario);
     }
 
     @Override
-    public List<PreferenciasUsuario> list() {
+    public List<Preferencias_usuarios> list() {
         return preferenciaUsarioRepository.findAll();
     }
 

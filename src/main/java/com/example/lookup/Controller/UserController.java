@@ -71,7 +71,7 @@ public class UserController {
         SecurityUser securityUser = (SecurityUser) this.userDetailsService.loadUserByUsername(
                 user.getNombre_Usuario());
         String jwt = jwtUtilService.generateToken(securityUser);
-        Long id = securityUser.getUser().getIdUser();
+        Long id = securityUser.getUser().getId();
         return new ResponseEntity<DTOToken>(new DTOToken(jwt, id), HttpStatus.OK);
 
     }
