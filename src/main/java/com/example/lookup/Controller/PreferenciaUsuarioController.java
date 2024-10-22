@@ -2,7 +2,7 @@ package com.example.lookup.Controller;
 
 import com.example.lookup.Services.PreferenciaUsuarioService;
 import com.example.lookup.dtos.PreferenciadeusuarioDTO;
-import com.example.lookup.entities.PreferenciasUsuario;
+import com.example.lookup.entities.Preferencias_usuarios;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,7 +27,7 @@ public class PreferenciaUsuarioController {
     public ResponseEntity<PreferenciadeusuarioDTO> save (@RequestBody PreferenciadeusuarioDTO preferenciadeusuarioDTO)
     {
         mp  = new ModelMapper();
-        PreferenciasUsuario p = mp.map(preferenciadeusuarioDTO,PreferenciasUsuario.class);
+        Preferencias_usuarios p = mp.map(preferenciadeusuarioDTO, Preferencias_usuarios.class);
 
         preferenciaUsuarioService.save(p);
         return new ResponseEntity<PreferenciadeusuarioDTO>(preferenciadeusuarioDTO, HttpStatus.OK);

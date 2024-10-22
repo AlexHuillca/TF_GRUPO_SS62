@@ -10,7 +10,7 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    @Query("SELECT u FROM User u WHERE u.nombreUsuario = :userName")
+    @Query("SELECT u FROM User u WHERE u.Nombre_Usuario = :userName")
     User findByUserName(@Param("userName") String userName);
     //FORMA METODO QUERY ...
     @Query("select new com.example.lookup.dtos.UserPorGeneroDTO(u.genero, count(u)) from User u group by u.genero")
