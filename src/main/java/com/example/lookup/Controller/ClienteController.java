@@ -36,8 +36,6 @@ public class ClienteController {
     {
         return new ResponseEntity<List<ClienteDTO>>(Arrays.asList(mp.map(clienteService.list(),ClienteDTO[].class)),HttpStatus.OK);
     }
-
-
     @DeleteMapping("/eliminar/cliente/{id}")
     public ResponseEntity<String> delete( @PathVariable Long id)
         {
